@@ -1,7 +1,3 @@
-Creating a README for your Python learning journey is a great way to document your progress, goals, and what you’ve learned. Here’s a template you can use and customize as you go along:
-
----
-
 # My Python Learning Journey
 
 Welcome to my Python learning journey! This README serves as a log of everything I'm learning, practicing, and creating with Python. It's a work in progress, and I will keep updating it as I move forward in my learning.
