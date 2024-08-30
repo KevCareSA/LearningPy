@@ -10,4 +10,3 @@ Welcome to my Python learning journey! This README serves as a log of everything
 - **Understand Object-Oriented Programming (OOP)**: Dive deep into OOP principles and how they are implemented in Python.
 - **Explore Web Development**: Learn about web frameworks like Flask or Django to create dynamic web applications.
 - **Prepare for Advanced Topics**: Prepare myself for more advanced topics like data science, machine learning, and automation.
-
