@@ -47,13 +47,12 @@
 # else:
 #     print("Eligible to vote")
 
-#Check Marks
 
-mark = int(input("Enter marks "))
-low_mark = 0
-high_mark = 100
+#############################################
 
-if low_mark <= mark <= high_mark:
-    print("Within range")
+character = input("Enter character: ")
+
+if character == "a" or character == "e" or character == "i" or character == "o" or character == "u":
+    print("vowel")
 else:
-    print("Outside range") 
+    print("consonant")
