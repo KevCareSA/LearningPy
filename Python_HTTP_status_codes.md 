@@ -1,0 +1,328 @@
+HTTP status codes is a conversation between your browser and the site server. The server gives responses to the browser’s request in the form of a three-digit code known as HTTP status codes. 
+
+Categories of HTTP status codes are.
+
+- Informational responses (100–199)
+- Successful responses (200–299)
+- Redirects (300–399)
+- Client errors (400–499)
+- Server errors (500–599)
+
+# Informational Responses
+
+The HTTP status codes are used to indicate that any specific HTTP request has successfully completed or not.
+
+There are four Informational Responses those are **Continue**, **Switching Protocols**, **Processing**, and **Early**
+
+All of them are described below:
+
+- **100 Continue:** The HTTP 100 Continue Informational Response status code is used to inform the client that till now everything is OKAY with the request. If the work is done then the client will ignore it if it’s not done yet then the client will proceed with the other requests. The server needs to send a final response when the request has been completed. When the request contains the Expect header field that includes **100-continue** expectation, the 100 response indicates that the server waiting to receive the request payload body. The client does not need to send the request-header with the **100-continue** expectation. If it does not wish to send a request body. **Status:**
+    
+    ```
+    100 Continue
+    ```
+    
+- **101 Switching Protocols:** The HTTP 101 Switching Protocol Informational Response status code is used to indicate the protocols that are going to switch for the client request which includes the upgrade request header for the protocols. This status code can be used with the WebSockets. **Status:Example:** Performing with the websockets.
+    
+    ```
+    101 Switching Protocols
+    ```
+    
+    ```
+    HTTP/1.1 101 Switching Protocols
+    Upgrade: websocket
+    Connection: Upgrade
+    ```
+    
+- **102 Processing:** The 102 Processing Informational Response status code is used to indicate that the server received the request and working on the request but in response, there is nothing till now.
+- **103 Early Hints:** The 103 Early Hints Informational Response status code is used with the link header to allow the User-Agent to reloading the resources when the server is preparing a response. So basically when the server is working on to prepare the response then, the 103 Early Hints forcefully reloading the resources so the server can have few times on preparing a response. **Status:**
+    
+    ```
+    103 Early Hints
+    ```
+    
+
+# **Successful Responses**
+
+The HTTP status codes are used to indicate that any specific HTTP request has successfully completed or not.
+
+There are ten Successful Responses those are **OK**, **Created**, **Accepted**, **Non-Authoritative Information**, **No Content**, **Reset Content**, **Partial Content**, **Multi-Status**, and **Already Reported**. All of them are described below:
+
+- **200 OK:** The HTTP 200 OK response meaning is that the request made by the client has been successful, but the meaning of the success depending on the four type of request made by the clients. The **GET** method fetch and transmitted the resources in the message body. The **HEAD** method is placed in the message body as a entity header. The **POST** method describing the result of the action is transmitted in the message body, and the last **TRACE** method contains the request message as received by the server. **Status:**
+    
+    ```
+    200 OK
+    ```
+    
+- **201 Created:** The 201 Created indicates that the request has succeeded and has led to the creation of a resource. It means the origin server MUST create the resource before returning the 201 Created code if that is not possible then it will become 202 Accepted. Basically this HTTP status code indicates that a new resource has been created as a result of the successful completion of a request. **Status:**
+    
+    ```
+    201 Created
+    ```
+    
+- **202 Accepted:** The 201 Accepted indicates that the request from the client has been received, but it does not means the server is working on it. Maybe that time the server is working on other requests, so the client has to wait until the turns of that accepted request come. Accepted means it will definitely proceed. **Status:**
+    
+    ```
+    202 Accepted
+    ```
+    
+- **203 Non-Authoritative Information:** The 203 Non-Authoritative Information indicates that the request has been received and understood and the information sent back to the client as the response is from a third-party rather than from the original server. The 203 holds a similar value compared to 214, 214 has the advantage of being applicable to responses with any status code. **Status:**
+    
+    ```
+    203 Non-Authoritative Information
+    ```
+    
+- **204 No Content:** The 204 No Content indicates that the server has successfully processed the request but needs to return any content or maybe there is no need to send back any data. This code is cacheable by default. Tag header is included in such a response. Best suited as a result of a PUT request which updates the content without changing the current content of the page visible to the client. If the page is gonna change it will become 200 OK. **Status:**
+    
+    ```
+    204 No Content
+    ```
+    
+- **205 Reset Content:** The 205 Reset Content is send from the server to the client to request the client that reset the content from which the original document was sent. Like if client is sending the details in a form so need to refresh the UI. **Status:**
+    
+    ```
+    205 Reset Content
+    ```
+    
+- **206 Partial Content:** The 206 Partial Content indicates that the server is sending only a part of the requested resource due to a range header sent by the client. There can two situations if the range is one the Content-Type will be the type of the document returned. If there are several ranges then Content-Type is set to multipart/byteranges and each fragment covers one range. **Status:**
+    
+    ```
+    206 Partial Content
+    ```
+    
+- **207 Multi-Status:** A multi-status response conveys information about multiple resources where message body is followed by an XML message and contains separate response codes.
+- **208 Already Reported:** Already Reported used inside of the <dav:propstat> and it response element to avoid repeatedly enumerating the internal members of multiple bindings to the same collection.
+
+# **Redirection Responses**
+
+These status codes indicate that further action needs to be taken by the client to fulfill the request.
+
+This request can have several possible responses:
+
+- **300 Multiple Choice:** It is a link list. This request can have maximum five possible responses. The user can choose one of the links and go to the location. **Status:**
+    
+    ```
+    300 Multiple Choice
+    ```
+    
+- **301 Moved Permanently:** The **301 moved permanently** means that the requested resource has permanently been moved to a new URL. The new URL is given in the response. **Status:**
+    
+    ```
+    301 Moved Permanently
+    ```
+    
+- **302 Found:** The **302 Found** means that the requested resource has been moved temporarily to a new URL. The same URL should be used by visitors in a future request. **Status:**
+    
+    ```
+    302 Found
+    ```
+    
+- **303 See Other:** The requested resource can be found under an alternate URL. This is sent by the server to direct the visitor to another URL to get the requested page. **Status:**
+    
+    ```
+    303 See Other
+    ```
+    
+- **304 Not Modified:** This response indicated that the requested page has not been modified since last requested by the visitor. **Status:**
+    
+    ```
+    304 Not Modified
+    ```
+    
+- **305 Use Proxy:** **305 Use Proxy** is a deprecated status code. This response is sent by the server so that the requested URL can be accessed by the proxy mentioned in the location header. **Status:**
+    
+    ```
+    305 Use Proxy
+    ```
+    
+- **306 Switch Proxy:** This response code is no longer in use. But, the code is reserved as it was used in the previous version. **Status:**
+    
+    ```
+    306 Switch Proxy
+    ```
+    
+- **307 Temporary Redirect:** The **307 temporary redirect** means that the requested resource has been moved temporarily to a new URL. It shares the same semantics as of 302 Found, with the exception that the user agent must not change the HTTP method used. **Status:**
+    
+    ```
+    307 Temporary Redirect
+    ```
+    
+
+# **Client Error Responses**
+
+These status codes indicate that the client seems to have made an error or the request cannot be fulfilled by the server.
+
+- **400 Bad Request:** This response code occurs when the server could not understand the request because an invalid syntax is used. **Status:**
+    
+    ```
+    400 Bad Request
+    ```
+    
+- **401 Unauthorized:** This response code occurs when the server refuses to respond to the request because the request lacks client authentication to get the resources. **Status:**
+    
+    ```
+    401 Unauthorized
+    ```
+    
+- **402 Payment Required:** The response code 402 is reserved for future use. The aim of creating this response code is for the digital payment system. **Status:**
+    
+    ```
+    402 Payment Required
+    ```
+    
+- **403 Forbidden:** This response code occurs when the client wants to access the content but it does not have the right to access the content as it is unauthorized. **Status:**
+    
+    ```
+    403 Forbidden
+    ```
+    
+- **404 Not Found:** This response code occurs when the server cannot find the resources requested by the client. This code can also be sent by the server instead of error 403 to hide the resources from the unauthorized client. Error 404 is one of the most famous response codes on the web.**Status:**
+    
+    ```
+    404 Not Found
+    ```
+    
+- **405 Method Not Allowed:** This response code occurs when the server knows the method of the request but currently it has been disabled by the server. **Status:**
+    
+    ```
+    405 Method Not Allowed
+    ```
+    
+- **406 Not Acceptable:** This response code occurs when the server does not find the content mentioned in the client request. **Status:**
+    
+    ```
+    406 Not Acceptable
+    ```
+    
+- **407 Proxy Authentication Required:** This response code occurs when it is necessary for the client to authenticate itself with the proxy. **Status:**
+    
+    ```
+    407 Proxy Authentication Required
+    ```
+    
+- **408 Request Timeout:** This response code occurs when the webserver did not receive the required response within the time that it was prepared to wait. **Status:**
+    
+    ```
+    408 Request Timeout
+    ```
+    
+- **409 Conflict:** This response code occurs when the server could not complete the request due to conflict in the target resource. The client can resubmit the request by resolving the conflict. **Status:**
+    
+    ```
+    409 Conflict
+    ```
+    
+- **410 Gone:** This response code occurs when the requested resource is permanently deleted from the server and is no longer available. **Status:**
+    
+    ```
+    410 Gone
+    ```
+    
+- **411 Length Required:** This response code occurs when the server rejects the request as the request did not have a defined “Content-Length”. **Status:**
+    
+    ```
+    411 Length Required
+    ```
+    
+- **412 Precondition Failed:** This response code occurs when the server evaluates the preconditions given in the request header as false. **Status:**
+    
+    ```
+    412 Precondition Failed
+    ```
+    
+- **413 Request Entity Too Large:** This response code occurs when the server refuses to process the request because the request entity is larger than the server’s ability to process the data. **Status:**
+    
+    ```
+    413 Request Entity Too Large
+    ```
+    
+- **414 Request-URI Too Long:** This response code occurs when the client’s requested URI is longer than the ability of the server to interpret the URI. **Status:**
+    
+    ```
+    414 Request-URI Too Long
+    ```
+    
+- **415 Unsupported Media Type:** This response code occurs when the server rejects the requested resource because the media format of the requested resource is not supported by the server.**Status:**
+    
+    ```
+    415 Unsupported Media Type
+    ```
+    
+- **416 Requested Range Not Satisfiable:** Response code occurs when the request cannot be completed because of the range specified in the Range Header. The range can also be outside the target URI’s data. **Status:**
+    
+    ```
+    416 Requested Range Not Satisfiable
+    ```
+    
+- **417 Expectation Failed:** This response code occurs when the server can’t meet the expectation indicated by the Expect request-header field. **Status:**
+    
+    ```
+    416 Requested Range Not Satisfiable
+    ```
+    
+
+# **Server Error Responses:**
+
+Server error response occurs when the server fails to fulfill the request of the visitor.
+
+- **500 Internal Server Error:** 500 Internal Server Error is a common error message that occurs when the server meets an unexpected situation and it doesn’t know how to handle it. **Status:**
+    
+    ```
+    500 Internal Server Error
+    ```
+    
+- **501 Not Implemented:** 501 Not Implemented occurs when the requested method is not supported by the server. The server either does not perceive the request or it comes up short on the capacity to fulfill the request. ***GET*** and ***HEAD*** are the only methods that the server support. **Status:**
+    
+    ```
+    501 Not Implemented
+    ```
+    
+- **502 Bad Gateway:** 502 Bad Gateway occurs when the server is working as a gateway and it receives an invalid response from the upstream server. **Status:**
+    
+    ```
+    502 Bad Gateway
+    ```
+    
+- **503 Service Unavailable:** 503 Service Unavailable occurs when the server is unable to handle the requests (the server is temporarily overloading or down). **Status:**
+    
+    ```
+    503 Service Unavailable
+    ```
+    
+- **504 Gateway Timeout:** 504 Gateway Timeout occurs when the server is acting as a gateway and did not get a response from the upstream server on time. **Status:**
+    
+    ```
+    504 Gateway Timeout
+    ```
+    
+- **505 HTTP Version Not Supported:** 505 HTTP Version Not Supported occurs when the HTTP protocol version used in the request is not supported by the server. **Status:**
+    
+    ```
+    505 HTTP Version Not Supported
+    ```
+    
+- **506 Variant Also Negotiated:** 506 Variant Also Negotiated occurs when there is an internal configuration error in the server. **Status:**
+    
+    ```
+    506 Variant Also Negotiated
+    ```
+    
+- **507 Insufficient Storage:** 507 Insufficient Storage occurs when the server is unable to store or execute the (PUT or POST) operation that is required to complete the request successfully due to the large size of the operation. **Status:**
+    
+    ```
+    507 Insufficient Storage
+    ```
+    
+- **508 Loop Detected:** 508 Loop Detected occurs when an infinite loop is detected by the server while processing the request. The request is terminated by the server. **Status:**
+    
+    ```
+    508 Loop Detected
+    ```
+    
+- **510 Not Extended:** 509 Not Extended occurs when there are no further resources(extensions) for the server to complete the required request. **Status:**
+    
+    ```
+    510 Not Extended
+    ```
+    
+- **511 Network Authentication Required:** The 511 Network Authentication Required occurs when the visitors need to authenticate in order to gain network access. **Status:**
